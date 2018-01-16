@@ -207,7 +207,7 @@ public class WorkflowCacheImpl extends WorkflowCache {
 	
 	protected List<WorkflowStep> addSteps(Contentlet contentlet, List<WorkflowStep> steps) {
 		 if(contentlet ==null || !UtilMethods.isSet(contentlet.getIdentifier())
-				 || steps ==null || !steps.isEmpty() ){
+				 || steps ==null ){
 			 return null;
 		 }
 
