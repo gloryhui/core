@@ -522,7 +522,7 @@ public class WorkflowFactoryImpl implements WorkFlowFactory {
 
 		schemes = cache.getSchemesByStruct(structId);
 
-		if (schemes != null && !schemes.isEmpty()) {
+		if (schemes != null) {
 			return schemes;
 		}
 
