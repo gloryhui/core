@@ -698,7 +698,7 @@ public class WorkflowHelper {
         try {
 
             Logger.debug(this, "Getting the available default workflows actions by content type: " + contentTypeId);
-            actions = this.workflowAPI.findAvailableDefaultActionsByContentType(contentTypeAPI.find(contentTypeId), APILocator.getUserAPI().getSystemUser());
+            actions = this.workflowAPI.findAvailableDefaultActionsByContentType(contentTypeAPI.find(contentTypeId), user);
             for (WorkflowAction action : actions){
                 WorkflowScheme scheme = this.workflowAPI.findScheme(action.getSchemeId());
                 WorkflowDefaultActionView value = new WorkflowDefaultActionView(scheme,action);

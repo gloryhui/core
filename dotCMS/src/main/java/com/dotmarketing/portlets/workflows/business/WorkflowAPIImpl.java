@@ -1490,8 +1490,13 @@ public class WorkflowAPIImpl implements WorkflowAPI, WorkflowAPIOsgiService {
 	public List<WorkflowAction> findAvailableDefaultActionsByContentType(ContentType contentType, User user)
 			throws DotDataException, DotSecurityException {
 
+		DotPreconditions.isTrue(this.permissionAPI.
+						doesUserHavePermission(contentType, PermissionAPI.PERMISSION_READ, user,true),
+				() -> "User " + user + " cannot read content type " + contentType.name(),
+				DotSecurityException.class);
+
     	List<WorkflowScheme> schemes = findSchemesForContentType(contentType);
-    	return findAvailableDefaultActionsBySchemes(schemes, user);
+    	return findAvailableDefaultActionsBySchemes(schemes, APILocator.getUserAPI().getSystemUser());
 	}
 
 

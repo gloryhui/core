@@ -651,15 +651,9 @@ public class WorkflowResource {
     /**
      * Todo: change the signature to be align with the rest implementation such as: reorderAction
      * Change the order of the steps in a scheme
-<<<<<<< HEAD
      * @param request                           HttpServletRequest
      * @param stepId                            String stepid to reorder
      * @param order                             int    order
-=======
-     * @param request HttpServletRequest
-     * @param stepId  String step id
-     * @param order   int    order for the step
->>>>>>> origin/master
      * @return Response
      */
     @PUT
@@ -831,21 +825,21 @@ public class WorkflowResource {
         }
 
         return response;
-    } // findAllSchemesAndSchemesByContentType.
+    } // findAvailableDefaultActionsByContentType.
 
     /**
-     * Returns all the schemes first steps actions available for the content type and include
-     * schemes non-archive . 401 if the user does not have permission.
+     * Returns all the possible default actions associated to the workflow schemes.
+     * 401 if the user does not have permission.
      * @param request  HttpServletRequest
      * @return Response
      */
     @GET
-    @Path("/defaultactions/schemes/{schemeIds}")
+    @Path("/defaultactions/schemes")
     @JSONP
     @NoCache
     @Produces({MediaType.APPLICATION_JSON, "application/javascript"})
     public final Response findAvailableDefaultActionsBySchemes(@Context final HttpServletRequest request,
-            @PathParam("schemeIds")      final String schemeIds) {
+            @QueryParam("ids")      final String schemeIds) {
 
         final InitDataObject initDataObject = this.webResource.init
                 (null, true, request, true, null);
@@ -871,6 +865,6 @@ public class WorkflowResource {
         }
 
         return response;
-    } // findAllSchemesAndSchemesByContentType.
+    } // findAvailableDefaultActionsBySchemes.
 
 } // E:O:F:WorkflowResource.
