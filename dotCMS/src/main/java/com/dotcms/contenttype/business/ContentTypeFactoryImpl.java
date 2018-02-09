@@ -404,6 +404,7 @@ public class ContentTypeFactoryImpl implements ContentTypeFactory {
     dc.addParam(type.expireDateVar());
     dc.addParam(type.publishDateVar());
     dc.addParam(type.modDate());
+    dc.addParam(type.defaultWorkflowAction());
     dc.addParam(type.id());
     dc.loadResult();
   }
@@ -429,6 +430,7 @@ public class ContentTypeFactoryImpl implements ContentTypeFactory {
     dc.addParam(type.expireDateVar());
     dc.addParam(type.publishDateVar());
     dc.addParam(type.modDate());
+    dc.addParam(type.defaultWorkflowAction());
     dc.loadResult();
   }
 

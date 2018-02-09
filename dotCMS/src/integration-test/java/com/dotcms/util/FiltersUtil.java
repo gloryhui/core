@@ -166,6 +166,11 @@ public class FiltersUtil {
             public BaseContentType baseType() {
                 return base;
             }
+
+            @Override
+            public String defaultWorkflowAction() {
+                return null;
+            }
         };
 
         return contentTypeAPI.save(new ImplClassContentTypeTransformer(type).from());

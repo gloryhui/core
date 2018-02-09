@@ -75,6 +75,7 @@ public class StructureTransformer implements ContentTypeTransformer  {
 		struct.setSystem(type.system());
 		struct.setUrlMapPattern(type.urlMapPattern());
 		struct.setVelocityVarName(type.variable());
+		struct.setDefaultWorkflowAction(type.defaultWorkflowAction());
 		return struct;
 
 	}
@@ -189,6 +190,11 @@ public class StructureTransformer implements ContentTypeTransformer  {
 			@Override
 			public BaseContentType baseType() {
 				return BaseContentType.getBaseContentType(struct.getStructureType());
+			}
+
+			@Override
+			public String defaultWorkflowAction() {
+				return struct.getDefaultWorkflowAction();
 			}
 
 		};

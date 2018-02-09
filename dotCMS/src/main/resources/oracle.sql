@@ -738,6 +738,7 @@ create table structure (
    expire_date_var varchar2(255),
    publish_date_var varchar2(255),
    mod_date date,
+   default_workflow_action varchar2(36),
    primary key (inode)
 );
 create table cms_role (
@@ -2509,3 +2510,5 @@ CREATE INDEX idx_system_event ON system_event (created);
 
 --Content Types improvement
 CREATE INDEX idx_lower_structure_name ON structure (LOWER(velocity_var_name));
+
+alter table structure add constraint fk_action_inode foreign key (default_workflow_action) references workflow_action(id);

@@ -740,6 +740,7 @@ create table structure (
    expire_date_var varchar(255),
    publish_date_var varchar(255),
    mod_date datetime,
+   default_workflow_action varchar(36),
    primary key (inode)
 );
 create table cms_role (
@@ -2316,3 +2317,4 @@ CREATE TABLE system_event (
 ALTER TABLE system_event ADD CONSTRAINT PK_system_event PRIMARY KEY (identifier);
 CREATE INDEX idx_system_event ON system_event (created);
 
+alter table structure add constraint fk_action_inode foreign key (default_workflow_action) references workflow_action(id);

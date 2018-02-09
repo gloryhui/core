@@ -265,4 +265,7 @@ public abstract class ContentType implements Serializable, Permissionable, Conte
     return ImmutableList.of();
   }
 
+  @Nullable
+  public abstract String defaultWorkflowAction();
+
 }

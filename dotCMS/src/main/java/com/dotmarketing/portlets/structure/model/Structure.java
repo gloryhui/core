@@ -85,8 +85,7 @@ public class Structure extends Inode implements Permissionable, Treeable,Content
     private String publishDateVar;
     private String expireDateVar;
     private Date modDate;
-
-
+    private String defaultWorkflowAction;
 
     public String getDetailPage() {
         return pagedetail;
@@ -396,6 +395,25 @@ public class Structure extends Inode implements Permissionable, Treeable,Content
 
     public void setModDate(Date modDate) {
         this.modDate = modDate;
+    }
+
+    /**
+     * Returns the default workflow action Id of the structure
+     * if there is one associated to the structure
+     *
+     * @return the default workflow action ID associated to this structure
+     */
+    public String getDefaultWorkflowAction() {
+        return defaultWorkflowAction;
+    }
+
+    /**
+     * Sets the default workflow action Id associated to this structure
+     *
+     * @param defaultWorkflowAction
+     */
+    public void setDefaultWorkflowAction(String defaultWorkflowAction) {
+        this.defaultWorkflowAction = defaultWorkflowAction;
     }
 
 }

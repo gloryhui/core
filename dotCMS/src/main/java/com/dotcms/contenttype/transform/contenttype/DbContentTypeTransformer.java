@@ -134,6 +134,12 @@ public class DbContentTypeTransformer implements ContentTypeTransformer{
 				if(d!=null) javaDate.setTime(d.getTime());
 				return javaDate;
 			}
+
+			@Override
+			public String defaultWorkflowAction() {
+				String ret = (String) map.get("default_workflow_action");
+				return ( UtilMethods.isSet(ret))  ? ret : null;
+			}
 		};
 
 		return new ImplClassContentTypeTransformer(type).from();
